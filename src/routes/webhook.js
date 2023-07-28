@@ -1,12 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
+import processMessage from "../controllers/messages.js";
 // import { processPostback } from "../controllers/postback";
-// import { processMessage } from "../controllers/messages";
+
 
 dotenv.config()
 
 const router = express.Router();
-const verify_FB_Token = process.env.VERIFY_FB_TOKEN;
+const verifyFBToken = process.env.VERIFY_FB_TOKEN;
 
 router.get("/webhook", (req, res) => {
     let mode = req.query["hub.mode"];
@@ -16,7 +17,7 @@ router.get("/webhook", (req, res) => {
 
     if (mode && token) {
         // Check the mode and token sent is correct
-        if (mode === "subscribe" && token === verify_FB_Token) {
+        if (mode === "subscribe" && token === verifyFBToken) {
             // Respond with the challenge token from the request
             console.log("WEBHOOK_VERIFIED");
             res.status(200).send(challenge);
@@ -33,12 +34,15 @@ router.post("/webhook", (req, res) => {
         req.body.entry.forEach((entry) => {
        
            entry.messaging.forEach((event) => {
-           console.log(event);
-           if (event.postback){
+               console.log(event);
+               if (event.message && event.message.text) {
+                   processMessage(event);
+               }
+           /*if (event.postback){
               processPostback(event);
            } else if (event.message){
               processMessage(event);
-           }
+           }*/
        });
      });
      res.sendStatus(200);
