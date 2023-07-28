@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import routes from "./routes/webhook"
+import routes from "./routes/webhook.js"
 
 dotenv.config()
 
@@ -11,7 +11,7 @@ const port = parseInt(process.env.PORT)||3000
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use("",routes)
+app.use("/",routes)
 
 
 app.listen(port, () => {

@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
-import { processPostback } from "../controllers/postback";
-import { processMessage } from "../controllers/messages";
+// import { processPostback } from "../controllers/postback";
+// import { processMessage } from "../controllers/messages";
 
 dotenv.config()
 
