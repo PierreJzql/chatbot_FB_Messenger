@@ -9,12 +9,21 @@ const router = express.Router();
 const verify_FB_Token = process.env.VERIFY_FB_TOKEN;
 
 router.get("/webhook", (req, res) => {
-    if (req.query["hub.verify_token"] === verify_FB_Token) {
-        console.log("webhook verified");
-        res.status(200).send(req.query["hub.challenge"]);
-    } else {
-        console.error("verification failed. Token mismatch.");
-        res.sendStatus(403);
+    let mode = req.query["hub.mode"];
+    let token = req.query["hub.verify_token"];
+    let challenge = req.query["hub.challenge"];
+
+
+    if (mode && token) {
+        // Check the mode and token sent is correct
+        if (mode === "subscribe" && token === config.verifyToken) {
+            // Respond with the challenge token from the request
+            console.log("WEBHOOK_VERIFIED");
+            res.status(200).send(challenge);
+        } else {
+            console.error("verification failed. Token mismatch.");
+            res.sendStatus(403);
+        }
     }
 });
 
@@ -33,6 +42,9 @@ router.post("/webhook", (req, res) => {
        });
      });
      res.sendStatus(200);
+    } else {
+        console.log("404 not found")
+        res.sendStatus(404);
     }
 })
 
