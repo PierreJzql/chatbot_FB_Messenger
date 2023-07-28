@@ -16,7 +16,7 @@ router.get("/webhook", (req, res) => {
 
     if (mode && token) {
         // Check the mode and token sent is correct
-        if (mode === "subscribe" && token === config.verifyToken) {
+        if (mode === "subscribe" && token === verify_FB_Token) {
             // Respond with the challenge token from the request
             console.log("WEBHOOK_VERIFIED");
             res.status(200).send(challenge);
