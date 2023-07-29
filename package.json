@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "ngrok": "ngrok http 8080"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
+    "@google-cloud/dialogflow": "^5.9.0",
     "nodemon": "^3.0.1"
   }
 }
