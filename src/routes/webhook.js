@@ -13,6 +13,10 @@ router.get("/webhook", (req, res) => {
     let token = req.query["hub.verify_token"];
     let challenge = req.query["hub.challenge"];
 
+    console.log("mode =",mode)
+    console.log("token = ", token)
+    console.log("challenge =",challenge)
+
 
     if (mode && token) {
         if (mode === "subscribe" && token === verifyFBToken) {
