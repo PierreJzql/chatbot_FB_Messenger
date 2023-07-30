@@ -1,7 +1,12 @@
 {
     "version": 2,
 
-    "rewrites": [
-        { "source": "/api/(.*)", "destination": "/api/webhook.js" }
-      ]
+  
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "src/public/index.html"
+        }
+    ]
 }
+

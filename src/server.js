@@ -12,15 +12,13 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// app.use(express.static("./src/public"));
+app.use(express.static("./src/public"));
 
 app.use("/", routes);
 
 
 
 
-// app.listen(port, () => {
-//     console.log((`Server running on port : ${port}`))
-// });
-
-export default app
+app.listen(port, () => {
+    console.log((`Server running on port : ${port}`))
+});
