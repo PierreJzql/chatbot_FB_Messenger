@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import routes from "./src/routes/webhook.js"
+import routes from "./routes/webhook.js"
 
 dotenv.config();
 
