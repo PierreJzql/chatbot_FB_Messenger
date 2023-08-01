@@ -6,14 +6,14 @@ dotenv.config();
 
 const FBPageToken = process.env.FB_PAGE_TOKEN;
 const projectId = "chatbotfbmessenger";
-const language = "fr"
+const language = "fr";
 
 const config = {
     credentials: {
         private_key: process.env.private_key,
         client_email: process.env.client_email
     }
-}
+};
 
 const sessionClient = new dialogflow.SessionsClient(config);
 
