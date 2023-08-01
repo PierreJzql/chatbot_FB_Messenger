@@ -6,7 +6,7 @@ dotenv.config();
 
 const FBPageToken = process.env.FB_PAGE_TOKEN;
 const projectId = "chatbotfbmessenger";
-const language = "fr";
+const language = "en";
 
 const config = {
     credentials: {
