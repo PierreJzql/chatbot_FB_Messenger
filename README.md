@@ -19,7 +19,7 @@ Creating a FB Messenger chatbot
   <a href="#author">Author</a>
   </p>
 
-### 🏠 [Homepage](https://github.com/PierreJzql/test_vercel#readme)
+### 🏠 [Homepage](https://github.com/PierreJzql/chatbot_FB_Messenger#readme)
 
 ### ✨ [Demo](https://chatbotfbmessenger-e4572701eff6.herokuapp.com/)
 </div>
