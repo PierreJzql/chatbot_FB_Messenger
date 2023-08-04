@@ -1,7 +1,7 @@
 {
   "name": "chatbot_fb_messenger",
   "version": "1.0.0",
-  "description": "",
+  "description": "Creating a FB Messenger chatbot",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

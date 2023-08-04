@@ -5,7 +5,7 @@ import dialogflow from "@google-cloud/dialogflow";
 dotenv.config();
 
 const FBPageToken = process.env.FB_PAGE_TOKEN;
-const projectId = "chatbotfbmessenger";
+const projectId = process.env.PROJECT_ID;
 const language = "en";
 
 const config = {
@@ -23,7 +23,7 @@ const sendMessage = (event) => {
     let sender = event.sender.id;
     let text = event.message.text;
 
-    let sessionId = 'Chaty'
+    let sessionId = 'Chaty';
 
     const sessionPath = sessionClient.projectAgentSessionPath(
         projectId,
@@ -55,9 +55,9 @@ const sendMessage = (event) => {
                 }
             }, (fbErr, fbRes) => {
                 if (fbErr) {
-                    console.log('Error sending message: ', fbErr);
+                    console.error('Error sending message: ', fbErr);
                 } else if (fbRes.body.error) {
-                    console.log('Error: ', fbRes.body.error);
+                    console.error('Error: ', fbRes.body.error);
                 }
             });
         })

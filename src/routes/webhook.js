@@ -31,7 +31,6 @@ router.post("/webhook", (req, res) => {
         req.body.entry.forEach((entry) => {
        
             entry.messaging.forEach((event) => {
-                console.log("CL event=", event);
                 if (event.message && event.message.text) {
                     sendMessage(event);
                 }
@@ -39,7 +38,7 @@ router.post("/webhook", (req, res) => {
         });
         res.sendStatus(200);
     } else {
-        console.log("404 not found")
+        console.error("404 not found");
         res.sendStatus(404);
     }
 });
